@@ -1,7 +1,10 @@
-// import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import ingredientsSlice from "./ingredientsSlice";
 
-// export const store = configureStore({
-//     reducer: {
-//         ingredients: ingredientsReducer
-//     }
-// })
+// Create a new store object using toolkit
+// this function loads the recuders
+export const store = configureStore({
+  reducer: {
+    ingredients: ingredientsSlice,
+  },
+});

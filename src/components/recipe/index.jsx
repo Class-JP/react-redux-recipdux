@@ -1,6 +1,10 @@
 import { Col, Container, Image, ListGroup, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 export const RecipePanel = () => {
+
+  const ingredients = useSelector(state => state.ingredients);
+
   return (
     <Container className="recipe-panel">
       <Row>
@@ -14,27 +18,27 @@ export const RecipePanel = () => {
           <ListGroup className="recipe-ingredients">
               <ListGroup.Item>
                 <strong>Flour: </strong>
-                <span>700</span>
+                <span>{ ingredients.flour }</span>
                 <small>(g)</small>
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Milk: </strong>
-                <span>1000</span>
+                <span>{ ingredients.milk }</span>
                 <small>(ml)</small>
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Eggs: </strong>
-                <span>3</span>
+                <span>{ ingredients.eggs }</span>
                 <small>(units)</small>
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Butter: </strong>
-                <span>700</span>
+                <span>{ ingredients.butter }</span>
                 <small>(g)</small>
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Sugar: </strong>
-                <span>100</span>
+                <span>{ ingredients.sugar }</span>
                 <small>(mg)</small>
               </ListGroup.Item>
             </ListGroup>      

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { updateIngredients } from "../../redux/ingredientsSlice";
 
 export const IngredientsPanel = () => {
 
@@ -10,6 +12,15 @@ export const IngredientsPanel = () => {
     butter: '',
     sugar: ''
   });
+
+  // in order to execute acctions, we need the dispath
+  const dispatch = useDispatch()
+
+  const saveRecipe = () => {
+    // The dispatch uses the action called "updateIngredients"
+    // then the acction "updateIngredients" sends the ingredients data as a payload
+    dispatch(updateIngredients(ingredients));
+  };
 
 
   return (
@@ -94,7 +105,7 @@ export const IngredientsPanel = () => {
           </Form.Group>
           <Button
             type="button"
-            onClick={() => console.log(ingredients)}
+            onClick={saveRecipe}
           >
             Update Recipe!
           </Button>
